@@ -1,0 +1,136 @@
+import numpy as np
+
+# 1. array()
+a = np.array([10, 20, 30, 40, 50])
+print(a)
+
+# 2. ones()
+a = np.ones(5)
+print(a)
+
+# 3. arange()
+a = np.arange(1, 11)
+print(a)
+
+# 4. reshape()
+a = np.arange(1, 7)
+b = a.reshape(2, 3)
+print(b)
+
+# 5. flatten()-copy is created and changes are made in copies.
+a = np.array([[1, 2], [3, 4]])
+print(a.flatten())
+
+# 6. transpose()
+a = np.array([[1, 2, 3], [4, 5, 6]])
+print(a.T)
+
+# 7. sum()
+a = np.array([10, 20, 30, 40])
+print(np.sum(a))
+
+# 8. mean()
+print(np.mean(a))
+
+# 9. indexing
+print(a[0])
+
+# 10. slicing
+print(a[1:3])
+
+#11.Dimension
+print(a.ndim)
+
+#12.ravel-new copy is not created ,changes are made in original.
+b = a.ravel()
+
+print("Original array:")
+print(a)
+
+print("After ravel:")
+print(b)
+
+# 13.Masking
+mask = a > 25
+
+print("Mask:")
+print(mask)
+
+print("Elements greater than 25:")
+print(a[mask])
+
+
+import pandas as pd
+
+data = {
+    "Name": ["Prachi", "Palak", "Tanish", "Rihan", "Navraj"],
+    "Age": [19, 20, 19, 21, 20],
+    "Marks": [85, 90, 75, 88, 95],
+    "Department": ["IT", "HR", "IT", "Finance", "IT"]
+}
+
+
+df = pd.DataFrame(data)
+
+# 1. DataFrame
+print(df)
+
+# 2. head()
+print(df.head())
+
+# 3. tail()
+print(df.tail())
+
+# 4. shape
+print(df.shape)
+
+# 5. columns
+print(df.columns)
+
+# 6. index
+print(df.index)
+
+# 7. dtypes
+print(df.dtypes)
+
+# 8. info()
+print(df.info())
+
+# 9. Selecting one column
+print(df["Name"])
+
+# 10. Selecting multiple columns
+print(df[["Name", "Marks"]])
+
+# 12. loc
+print(df.loc[0])
+
+# 13. iloc
+print(df.iloc[0])
+
+# 14. Filtering / Masking
+print(df[df["Marks"] > 80])
+
+# 15. mean()
+print(df["Marks"].mean())
+
+# 17. max()
+print(df["Marks"].max())
+
+# 18. min()
+print(df["Marks"].min())
+
+# 19. sum()
+print(df["Marks"].sum())
+
+# 22. value_counts()
+print(df["Department"].value_counts())
+
+# 23. isnull()
+print(df.isnull())
+
+# 25. rename()
+print(df.rename(columns={"Marks": "Score"}))
+
+# 26. groupby()
+print(df.groupby("Department")["Marks"].mean())
